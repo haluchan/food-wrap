@@ -1,0 +1,359 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+@media screen and (orientation: portrait) and (max-width: 812px) {
+  img {
+    width: 100%;
+    vertical-align: middle; }
+
+  body {
+    font-family: "cwTeXYen", sans-serif; }
+    body .pc {
+      max-width: 1920px;
+      margin: 0 auto;
+      display: none; }
+    body .revert {
+      max-width: 1080px;
+      display: none;
+      position: absolute;
+      z-index: 10; }
+    body .logo {
+      width: 29.8%;
+      margin: 5.1% 0 0 6.239%; }
+    body .menu {
+      width: 7.3%;
+      margin: 5.15625% 6.25% 0 0; }
+    body .top {
+      flex-direction: row;
+      display: flex;
+      justify-content: space-between; }
+    body .promo-video {
+      width: 87%;
+      border: #5e3612 0.35em solid;
+      box-sizing: border-box;
+      border-radius: 7px;
+      background-color: black; }
+    body .page {
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% auto;
+      text-align: center; }
+    body .nav {
+      display: none;
+      width: 100vw;
+      position: absolute;
+      z-index: 200;
+      background-image: url("../img/boundaryBg.png");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% auto;
+      height: 100vh;
+      text-align: center; }
+      body .nav .nav-title {
+        width: 27.5%;
+        position: relative;
+        margin: 0 auto; }
+        body .nav .nav-title:nth-child(2) {
+          margin-top: 12.03125%; }
+        body .nav .nav-title:nth-child(3) {
+          margin: 7.96875% auto; }
+        body .nav .nav-title:nth-child(4) {
+          margin: 7.96875% auto; }
+      body .nav .nav-bottom {
+        display: inline-block;
+        margin-top: 10.3125%;
+        width: 90%; }
+      body .nav .rules {
+        display: none;
+        position: absolute;
+        background-image: url("../img/boundaryBg2.png");
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 100% auto;
+        text-align: center;
+        top: 0;
+        width: 100vw;
+        z-index: 300;
+        padding-top: 32%; }
+        body .nav .rules .rule-bg {
+          position: relative;
+          display: inline-block;
+          width: 84.0625%;
+          margin-bottom: 10%; }
+          body .nav .rules .rule-bg :first-child {
+            position: absolute;
+            width: 11.607142857%;
+            top: -0.5%;
+            right: -3.5%; }
+          body .nav .rules .rule-bg :last-child {
+            position: absolute;
+            width: 11.607142857%;
+            bottom: 0.8%;
+            right: 5.5%; }
+    body .detail-page {
+      display: none;
+      background-image: url("../img/gameBg.png");
+      background-repeat: repeat;
+      background-position: top center;
+      background-size: 100% auto;
+      text-align: center; }
+      body .detail-page .detail {
+        margin: 3.28125% 0;
+        display: inline-block;
+        width: 88.28125%; }
+    body .page2 {
+      height: 100vh;
+      background-image: url("../img/page2Bg.png"); }
+      body .page2 .page2-title1 {
+        display: inline-block;
+        width: 54.53125%;
+        margin: 10.15625% 0 0 0; }
+      body .page2 .page2-title2 {
+        display: inline-block;
+        width: 87.03125%;
+        margin-top: 1.40625%; }
+      body .page2 .page2-bottom {
+        position: relative; }
+        body .page2 .page2-bottom .page2-start-btn {
+          position: relative;
+          left: 14vw;
+          top: -2vw;
+          width: 37.1875%;
+          margin: 2.8125% 0 0 18.59375%; }
+        body .page2 .page2-bottom .page2-s2 {
+          position: absolute;
+          top: 5vw;
+          right: 4.21875%;
+          width: 27.65625%; }
+        body .page2 .page2-bottom .page2-s1 {
+          position: absolute;
+          top: 20vw;
+          left: 10vw;
+          width: 16.25%; }
+    body .page3 {
+      display: none;
+      height: 100vh;
+      background-image: url("../img/page2Bg.png"); }
+      body .page3 .rule {
+        display: inline-block;
+        width: 87.5%;
+        margin-top: 18%;
+        margin-bottom: 9.6875%; }
+      body .page3 .page3-ok-btn {
+        display: inline-block;
+        width: 59.375%; }
+      body .page3 .teachGIF {
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh; }
+        body .page3 .teachGIF img {
+          position: absolute;
+          width: 100%;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+    body .page4 {
+      height: 100vh;
+      display: none;
+      background-image: url("../img/gameBg.png"); }
+      body .page4 #game {
+        transform-origin: 0 0; }
+      body .page4 .top {
+        margin-bottom: 3%; }
+    body .page5 {
+      height: 100vh;
+      display: none;
+      background-image: url("../img/page5Bg.png"); }
+      body .page5 .page5-t1 {
+        display: inline-block;
+        margin: 2% 0 3% 0;
+        width: 53.125%; }
+      body .page5 .page5-t2 {
+        width: 82.65625%;
+        margin: 1.5% 0 0 13.125%; }
+    body .page6 {
+      display: none;
+      height: 100vh;
+      background-image: url("../img/resultBg.png");
+      text-align: center; }
+      body .page6 .success {
+        display: none;
+        position: relative; }
+        body .page6 .success .page6-title {
+          display: inline-block;
+          width: 77.1875%;
+          margin: 3.125% 0 0 0; }
+        body .page6 .success #scoreP {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          font-size: 16vw;
+          margin-top: 32%;
+          font-weight: bold;
+          color: #5e3612; }
+          body .page6 .success #scoreP span {
+            font-size: 0.54em; }
+      body .page6 .fail {
+        display: none;
+        position: relative; }
+        body .page6 .fail .page6-title {
+          display: inline-block;
+          width: 77.1875%;
+          margin: 3.125% 0 0 0; }
+        body .page6 .fail .ct {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          font-size: 10vw;
+          margin-top: 25%;
+          font-weight: bold;
+          color: #5e3612; }
+          body .page6 .fail .ct span {
+            font-size: 0.54em; }
+      body .page6 .score {
+        position: relative;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        width: 44.21875%;
+        margin-top: -12%; }
+      body .page6 .page6-btn {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        margin-top: 2%; }
+        body .page6 .page6-btn .again-btn {
+          display: inline-block;
+          width: 38.125%; }
+        body .page6 .page6-btn .share-btn {
+          display: inline-block;
+          width: 38.125%; }
+        body .page6 .page6-btn .raffle-btn {
+          display: inline-block;
+          width: 38.125%; }
+        body .page6 .page6-btn .more-btn {
+          display: inline-block;
+          width: 38.125%; }
+    body .page7 {
+      display: none;
+      height: 100vh;
+      background-image: url("../img/page2Bg.png");
+      text-align: center; }
+      body .page7 .page7-t1 {
+        display: inline-block;
+        width: 86.5625%;
+        margin: 11.25% 0 0 0; }
+      body .page7 .r-form {
+        display: inline-block;
+        width: 85.9375%; }
+        body .page7 .r-form .coulum {
+          margin-top: 4.53125%;
+          height: 14vw; }
+          body .page7 .r-form .coulum .page7-title {
+            display: inline-block;
+            width: 25%;
+            margin-right: 3%;
+            box-sizing: border-box;
+            position: relative;
+            top: -14%; }
+          body .page7 .r-form .coulum .page7-input {
+            display: inline-block;
+            width: 70%;
+            box-sizing: border-box; }
+            body .page7 .r-form .coulum .page7-input input {
+              border: none;
+              background-color: transparent;
+              width: 100%;
+              background-image: url("../img/page7-input-bg.png");
+              background-repeat: no-repeat;
+              background-position: top center;
+              background-size: 100% auto;
+              height: 12.1vw;
+              font-size: 7vw;
+              padding: 0 12px;
+              box-sizing: border-box;
+              -webkit-appearance: none; }
+        body .page7 .r-form .checkw {
+          display: inline-block;
+          width: 45%;
+          margin-top: 3%; }
+          body .page7 .r-form .checkw #checkB {
+            display: none; }
+          body .page7 .r-form .checkw .check {
+            display: inline-block;
+            width: 1em;
+            height: 1.3em;
+            background-image: url("../img/checkbox.png");
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: top center;
+            background-size: 100% auto;
+            box-sizing: border-box;
+            margin-right: 3%;
+            vertical-align: bottom; }
+          body .page7 .r-form .checkw .main {
+            vertical-align: bottom;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 82%; }
+        body .page7 .r-form .page7-sent {
+          width: 33.75%;
+          margin: 6.25% auto 0 auto; } }
+@media screen and (orientation: landscape) and (max-width: 812px) {
+  img {
+    width: 100%;
+    vertical-align: middle; }
+
+  .pc {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: none; }
+
+  .revert {
+    display: block;
+    width: 100vw;
+    position: absolute;
+    z-index: 200; }
+
+  .promo {
+    display: none; }
+
+  .page {
+    display: none; }
+
+  .nav {
+    display: none; } }
+@media screen and (min-width: 813px) {
+  img {
+    width: 100%;
+    vertical-align: middle; }
+
+  .revert {
+    display: none;
+    width: 100vw;
+    position: absolute;
+    z-index: 200; }
+
+  .pc {
+    max-width: 1920px;
+    margin: 0 auto;
+    display: block; }
+
+  .promo {
+    display: none; }
+
+  .page {
+    display: none; }
+
+  .nav {
+    display: none; } }
+
+/*# sourceMappingURL=index.css.map */

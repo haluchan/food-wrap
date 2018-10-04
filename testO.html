@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <!-- 在手機裡全螢幕 -->
+
+    <title>Title</title>
+</head>
+<body>
+<div id="alpha"></div>
+<div id="beta"></div>
+<div id="gamma"></div>
+<script>
+  window.addEventListener('deviceorientation', function(event) {
+    var alpha = event.alpha;
+    var beta = event.beta;
+    var gamma = event.gamma;
+  }, false);
+
+  if(window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', function(event) {
+      var a = document.getElementById('alpha'),
+        b = document.getElementById('beta'),
+        g = document.getElementById('gamma'),
+        alpha = event.alpha,
+        beta = event.beta,
+        gamma = event.gamma;
+
+      a.innerHTML = Math.round(alpha);
+      b.innerHTML = Math.round(beta);
+      g.innerHTML = Math.round(gamma);
+
+    }, false);
+  }else{
+    document.querySelector('body').innerHTML = '你的瀏覽器不支援喔';
+  }
+
+  if(window.DeviceMotionEvent) {
+    var speed = 13;    // 用來判定的加速度閾值，太大了則很難觸發
+    var x, y, z, lastX, lastY, lastZ;
+    x = y = z = lastX = lastY = lastZ = 0;
+    window.addEventListener('devicemotion', function(event){
+      var acceleration = event.accelerationIncludingGravity;
+      x = acceleration.x;
+      y = acceleration.y;
+      z = acceleration.z;
+      if(Math.abs(z-lastZ) > speed) {
+        // 使用者裝置搖動了，觸發響應操作
+        // 此處的判斷依據是使用者裝置的加速度大於我們設定的閾值
+        score++
+      }
+      lastX = x;
+      lastY = y;
+    }, false);
+  }
+
+  if(window.DeviceOrientationEvent){
+
+    var lastAcc;
+    var x, y, z, lastX, lastY, lastZ;
+    x = y = z = lastX = lastY = lastZ = 0;
+
+
+    window.addEventListener('deviceorientation',function (event) {
+      var delA = Math.abs(event.alpha - lastX);    // alpha軸偏轉角
+      var delB = Math.abs(event.beta - lastY);    // beta軸偏轉角
+      var delG = Math.abs(event.gamma - lastZ);    // gamma軸偏轉角
+      var z = event.gamma;
+
+
+      if(delG > 43 ){
+
+      }
+
+      lastAcc = event;
+      lastX = event.alpha;
+      lastY = event.beta;
+      lastZ = event.gamma;
+
+    },false);
+
+  }
+
+</script>
+</body>
+</html>

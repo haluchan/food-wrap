@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel='stylesheet prefetch' href='//fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet prefetch" href="../css/jquery.rippleria.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.min.css">
+<link rel="stylesheet" href="../css/page_common.min.css">
+</head>
+<body>
+	<div id="container">
+	<h1></h1>
+    	<div id="content-container">
+        	<table class="notIndex">
+                <tbody>
+                	<tr><td>帳號</td><td><input type="text" id="a_id" maxlength="20" placeholder="長度3~20個字元, 只接受英文及數字混合."></td></tr>
+                    <tr><td>密碼</td><td><input type="text" id="a_pwd" class="nodata" maxlength="20" placeholder="長度3~20個字元, 只接受英文及數字混合. (若不更換密碼, 此欄位請留空值, 勿填)"></td></tr>
+                    <tr><td>&nbsp;</td><td><button id="bu_submit" class="bu rippleria"><i class="fa fa-pencil"></i><span>確認編輯</span></button>
+                    		<button id="bu_cancel" class="bu rippleria"><i class="fa fa-ban"></i><span>取消</span></button>
+                    </td></tr>
+                </tbody>
+            </table>
+            <i class="input-feedback fa fa-asterisk" icon-for="a_id"></i>
+            <i class="input-feedback fa fa-asterisk" icon-for="a_pwd"></i>
+        </div>
+	</div>
+    <footer>@catchdesign 2018</footer>
+	 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='../js/jquery.rippleria.js'></script>
+    <script src="../js/page_common.min.js"></script>
+    <script src="../js/admin_edit.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <!-- 在手機裡全螢幕 -->
+    <!--<link rel="stylesheet" href="css/layout.css"/>-->
+    <link rel="stylesheet" href="css/reset.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/pixi.min.js"></script>
+    <style>
+        #game{
+            transform-origin:0 0;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<div class="again-btn" id="again"><img src="img/again-btn.png" alt="再次挑戰"></div>
+<!--<script src="js/game.js"></script>-->
+</body>
+</html>
+<script>
+
+  game();
+
+  function game() {
+    var countDownNumber = 30;
+    var countdownid;
+    var score = 0;
+    var states = 0;
+    var flag = false;
+
+    var section = document.querySelector('#game');
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var sizeX = ((vw / 640));
+    var sc = 640 / 998;
+    var Graphics = PIXI.Graphics;
+    var sizeY = ((sizeX * 998) / 998);
+    divScale(sizeX, sizeY);
+
+    var Application = PIXI.Application,
+        Container = PIXI.Container,
+        loader = PIXI.loader,
+        resources = PIXI.loader.resources,
+        Sprite = PIXI.Sprite,
+        Style = new PIXI.TextStyle,
+        Text = new PIXI.Text;
+
+    var state, dashIcon, timeIcon, btn, foodWrap, foodWrapN, table, sister,foodScene, v1, v2, v3, v4, v5, v1f, v2f, v3f, v4f, v5f,backgroundScene,playScene,titleScene, timerText ,scoreText ,touchScene, mobileArray,look, warp , success;
+    var app = new Application({
+        width: 640,
+        height: 958,
+        antialiasing: false,
+        transparent: false,
+        resolution: 1,
+        backgroundColor: 0xC4EDFD
+      }
+    );
+    section.appendChild(app.view);
+    loader
+      .add("img/game.json")
+      .add("img/tIcon.json")
+      .load(setup);
+
+    function setup() {
+
+      backgroundScene = new Container();
+      playScene = new Container();
+      titleScene = new Container();
+      foodScene = new Container();
+      touchScene = new Container();
+
+      table =  new Sprite(
+        resources["img/game.json"].textures["table.png"]
+      );
+
+
+      titleScene.y = 47;
+
+      tStyle = new PIXI.TextStyle({
+        fontFamily: 'Arial',
+        fontSize: 48,
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        fill: ['#5e3612']
+      });
+
+      timerText = new PIXI.Text( 60 +'s',tStyle);
+      timerText.x = 139;
+      timerText.y = 10;
+      scoreText = new PIXI.Text('0',tStyle);
+      scoreText.x = 329;
+      scoreText.y = 10;
+      timeIcon =  new Sprite(
+        resources["img/game.json"].textures["time-icon.png"]
+      );
+      timeIcon.x = 51;
+
+      dashIcon =  new Sprite(
+        resources["img/game.json"].textures["dash-icon.png"]
+      );
+      dashIcon.x = 240;
+
+
+      v1 = PIXI.Texture.fromImage('v1.png');
+      v2 = PIXI.Texture.fromImage('v2.png');
+      v3 = PIXI.Texture.fromImage('v3.png');
+      v4 = PIXI.Texture.fromImage('v4.png');
+      v5 = PIXI.Texture.fromImage('v5.png');
+      v1f = PIXI.Texture.fromImage('v1f.png');
+      v2f = PIXI.Texture.fromImage('v2f.png');
+      v3f = PIXI.Texture.fromImage('v3f.png');
+      v4f = PIXI.Texture.fromImage('v4f.png');
+      v5f = PIXI.Texture.fromImage('v5f.png');
+      look = new Sprite(v1);
+      success = new Sprite(
+        resources["img/game.json"].textures["title-done.png"]
+      );
+      success.x = 365;
+      success.y = 61;
+
+      success.visible = false;
+
+      foodScene.x = 78;
+      foodScene.y = 205;
+
+
+      foodWrap = PIXI.Texture.fromImage('food-wrap.png');
+
+
+      foodWrapN = PIXI.Texture.fromImage('food-wrap-n.png');
+      foodWrapN.x = 500;
+
+
+      warp = new Sprite(foodWrap);
+      warp.y = 158;
+
+
+      btn = new Sprite(
+        resources["img/game.json"].textures["btn.png"]
+      );
+      btn.x = 500;
+      btn.y = 300;
+
+
+      sister = new Sprite(
+        resources["img/game.json"].textures["sister.png"]
+      );
+      sister.x = 266;
+      sister.y = 786;
+      sister.visible = false;
+
+      mobileArray = [];
+
+      for (var i = 0; i < 10; i++) {
+        var val = i ;
+        mobileArray.push(PIXI.Texture.fromFrame('icon' + val + '.png'));
+      }
+
+      var anim = new PIXI.extras.AnimatedSprite(mobileArray);
+
+      anim.x = 130;
+      anim.y = 240;
+      anim.animationSpeed = 0.07;
+      anim.visible = false;
+
+
+      btn.interactive = true;
+      btn.buttonMode = true;
+      btn.on('touchstart',function () {
+        sister.visible = true ;
+        anim.visible = true;
+        anim.play();
+
+        if(window.DeviceOrientationEvent){
+
+          window.addEventListener('deviceorientation',function (event) {
+            if(!flag){
+              // event.gamma >= -72 && event.gamma  <= -70 && event.alpha < 200
+              if( Math.round(event.gamma) >= -72 && Math.round(event.gamma)  <= -70 ){
+                sister.visible = false ;
+                anim.visible = false;
+                packageFood(score);
+                score++;
+                if(score >= 5){
+                  score = 5
+                }
+                success.visible = true;
+                flag = true;
+              }
+            }
+          },false);
+        }
+      });
+      btn.on('touchend',function () {
+        flag = false;
+        sister.visible = false ;
+        anim.visible = false;
+        success.visible = false;
+        warp.x = 0;
+        warp.texture = foodWrap;
+        reNew(score);
+      });
+
+      //Scene
+      foodScene.addChild(look);
+      touchScene.addChild(warp,btn ,anim);
+      titleScene.addChild(timeIcon, timerText, dashIcon, scoreText );
+      backgroundScene.addChild(table,titleScene,foodScene, touchScene ,sister,anim , success);
+      app.stage.addChild(backgroundScene);
+
+
+      countdown();
+      //Set the game state
+      state = play;
+
+      //Start the game loop
+      app.ticker.add(delta => gameLoop(delta));
+
+
+
+    }
+    function gameLoop(delta) {
+
+      //Update the current game state:
+      state(delta);
+
+    }
+
+    function play(delta){
+
+      scoreText.text = score;
+
+      if(countDownNumber === 0){
+        timerText.text = countDownNumber + "s";
+
+      }else{
+        timerText.text = countDownNumber + "s";
+      }
+
+    }
+
+    function packageFood(state) {
+
+      switch(state) {
+        case 0:
+          look.texture = v1f;
+          warp.texture = foodWrapN;
+          break;
+        case 1:
+          look.texture = v2f;
+          warp.texture = foodWrapN;
+          break;
+        case 2:
+          look.texture = v3f;
+          warp.texture = foodWrapN;
+          break;
+        case 3:
+          look.texture = v4f;
+          warp.texture = foodWrapN;
+          break;
+        case 4:
+          look.texture = v5f;
+          warp.texture = foodWrapN;
+          break;
+      }
+    }
+
+    function reNew(score) {
+
+      switch(score) {
+          case 1:
+            look.texture = v2;
+              break;
+          case 2:
+            look.texture = v3;
+              break;
+          case 3:
+            look.texture = v4;
+            break;
+          case 4:
+            look.texture = v5;
+            break;
+          case 5:
+            removeCanvase();
+            break;
+
+      }
+    }
+
+    function countdown(){
+
+      if (countDownNumber === 0){
+        removeGame();
+        clearTimeout(countdownid);
+      }else{
+        countDownNumber--;
+        if(countdownid){
+          clearTimeout(countdownid);
+        }
+        countdownid = setTimeout(countdown,1000);
+      }
+      return countDownNumber
+    }
+
+    function removeGame() {
+      loader.reset();
+      app.ticker.stop();
+      app.stage.removeChild(backgroundScene);
+      app.stage.destroy({children:true, texture:true, baseTexture:true});
+      PIXI.utils.destroyTextureCache ();
+      removeCanvase();
+    }
+
+  }
+
+  function onDragStart(event) {
+    this.data = event.data;
+    this.alpha = 1;
+    this.dragging = true;
+  }
+
+  function removeCanvase() {
+    var canvas = document.getElementsByTagName('canvas')[0];
+    var canvasParent = document.querySelector('#game');
+    canvasParent.removeChild(canvas);
+  }
+
+  function divScale(sizeX, sizeY) {
+    var game = document.querySelector("#game");
+    game.style.transform = "scale(" + sizeX + "," + sizeY + ")";
+
+  }
+
+
+  var again = document.querySelector("#again");
+  again.addEventListener('click',function () {
+    game();
+  },false);
+  again.addEventListener('touchstart',function () {
+    game();
+  },false);
+
+
+</script>

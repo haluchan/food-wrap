@@ -1,0 +1,84 @@
+
+@media screen and (orientation: portrait) and (max-width: 812px) {
+  img{
+    width: 100%;
+    vertical-align:middle;
+  }
+  body{
+    //background-color: #23b9eb;
+    .promo {
+      //display: none;
+    }
+    .promo-video{
+      width: 87%;
+      border: black 0.35em solid;
+      box-sizing: border-box;
+      border-radius: 7px ;
+      background-color: black;
+    }
+    .page{
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% auto;
+      height: 100vh;
+      text-align: center;
+    }
+    .page1{
+      display: none;
+      background-image: url("../img/page2Bg.png");
+      .page1-logo{
+        display: block;
+        width: 44.0625%;
+        padding-top: 9.6875%;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: 0 auto;
+      }
+      .promo-gift{
+        display: block;
+        width: 89.21875%;
+        padding-top: 14.375%;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: 0 auto;
+      }
+
+      .page1-start-btn{
+        display: inline-block;
+        width: 48.90625%;
+        position: relative;
+        top: -10.5vw;
+        margin-right: 2%;
+      }
+    }
+
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 812px){
+  img{
+    width: 100%;
+    vertical-align:middle;
+  }
+
+  .promo{
+    display: none;
+  }
+
+}
+
+@media screen  and (min-width: 813px){
+  img{
+    width: 100%;
+    vertical-align:middle;
+  }
+
+  .promo {
+    display: none;
+  }
+
+}
