@@ -1,28 +1,26 @@
 $(function() {
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Safari/i.test(navigator.userAgent) ) {
     console.log('ios');
-    // reiFrameSize();
     GEvent('活動首頁');
-
+    chackOrientation();
     $(window).on('load',function(){
-      $('.teachGIF img').removeAttr('src', '');
-      console.log('ok');
-      $('.page2-start-btn').on('click touchstart',function (e){
-        e.preventDefault();
-        $('.page2').css('display','none');
-        $('.page3').css('display','block');
-        GEvent('遊戲說明');
-      });
+      // $('.tgif').removeAttr('src', '');
+    });
+    $('.page2-start-btn').on('touchstart',function (){
+      $('.page2').css('display','none');
+      $('.page3').css('display','block');
+      GEvent('遊戲說明');
     });
 
-    $('.page3-ok-btn').on('click touchstart',function (){
+    $('.page3-ok-btn').on('touchstart',function (){
       // $('.teachGIF').append('<img src="img/demo.gif?a='+ Math.random() +'">').fadeIn(200);
-      $('.teachGIF').find('img').attr("src", "img/demo.gif");
+      $('.teachGIF').find('img').eq(1).attr("src", "img/animated.png");
       $('.teachGIF').fadeIn(200);
+      $('.teachGIF-p').fadeIn(200);
       setTimeout(function(){
         $('.page3').css('display','none');
-        $('.teachGIF img').removeAttr('src', '');
+        $('.tgif').removeAttr('src', '');
         $('.teachGIF').css('display','none');
         $('.page4').css('display','block');
         game();
@@ -35,26 +33,22 @@ $(function() {
       GEvent('遊戲結果');
     });
 
-    $('.shop').on('click touchstart',function (e) {
-      e.preventDefault();
-      window.open('https://www.google.com');
+    $('.shop').on('touchstart',function () {
+      window.open('https://www.fongkong.com.tw/product/14');
       GEvent('網路商城');
     });
 
-    $('.more-btn').on('click touchstart',function (e) {
-      e.preventDefault();
-      window.open('https://www.google.com');
+    $('.more-btn').on('touchstart',function () {
+      window.open('https://www.fongkong.com.tw/product/14');
       GEvent('好切立刻買');
     });
 
 
-    $('.share-btn').on('click touchstart',function (e) {
-      e.preventDefault();
+    $('.share-btn').on('touchstart',function () {
       GEvent('fb分享');
       shareFB();
     });
-    $('.raffle-btn').on('click touchstart',function (e) {
-      e.preventDefault();
+    $('.raffle-btn').on('touchstart',function () {
       $('.page6').css('display','none');
       $('.page7').css('display','block');
       GEvent('抽千元家用品');
@@ -73,21 +67,21 @@ $(function() {
     });
 
     //nav
-    $('.x-btn').on('click',function () {
+    $('.x-btn').on('touchstart',function () {
       $('.nav').fadeOut(150);
     });
-    $('.manu-btn').on('click',function () {
+    $('.manu-btn').on('touchstart',function () {
       $('.nav').fadeIn(150);
       GEvent('選單');
     });
-    $('#gift').on('click',function () {
+    $('#gift').on('touchstart',function () {
       $('.page').css('display','none');
       $('.detail-page').css('display','block');
       $('.nav').fadeOut(150);
       GEvent('獎品詳情');
     });
 
-    $('#first-page').on('click',function () {
+    $('#first-page').on('touchstart',function () {
       $('.page').css('display','none');
       $('.page2').css('display','block');
       $('.nav').fadeOut(150);
@@ -95,7 +89,7 @@ $(function() {
     });
 
 
-    $('#checkB').on('click',function () {
+    $('#checkB').on('touchstart',function () {
       console.log('check');
       if($('#checkB')[0].checked){
         $('.check').css('background-image',"url(img/v.png)")
@@ -103,20 +97,19 @@ $(function() {
         $('.check').css('background-image',"url(img/checkbox.png)")
       }
     });
-    $('.ruleo').on('click',function () {
+    $('.ruleo').on('touchstart',function () {
       $('.rules').fadeIn(150);
       $('.nav-bottom').css('display','none');
       $('.nav').css('background-image',"img/boundaryBg.png");
       GEvent('活動辦法');
     });
-    $('#cancel').on('click',function () {
+    $('#cancel').on('touchstart',function () {
       $('.rules').fadeOut(150);
       $('.nav-bottom').css('display','inline-block')
     });
-    $('#top').on('click',function () {
+    $('#top').on('touchstart',function () {
       window.scrollTo(0,0)
     })
-
 
   }else{
     $('.pc').css('display','block');
@@ -125,50 +118,29 @@ $(function() {
   }
 
   function chackOrientation() {
-    console.log(window.orientation);
-    switch(window.orientation) {
-      case 90 || -90:
-        $('#revert').css('display','block');
-        $('body').css('background-color','#ffffff');
+    // console.log(window.orientation);
+    window.addEventListener("orientationchange", function() {
+      console.log(screen.orientation.angle);
+      if(screen.orientation.angle > 80 && screen.orientation.angle < 110){
+        $('.revert').css('display','block');
         $('.container').css('display','none');
-        console.log('landscape');
-        break;
-      default:
-        $('#revert').css('display','none');
+        // console.log('landscape');
+      }else if(screen.orientation.angle > -80 && screen.orientation.angle < -110){
+        $('.revert').css('display','block');
+        $('.container').css('display','none');
+        // console.log('landscape');
+      }else{
+        $('.revert').css('display','none');
         $('.container').css('display','block');
-        console.log('portrait');
-        break;
-    }
+        // console.log('portrait');
+      }
+    }, false);
+
 
   }
   function shareFB() {
-    var localURL = location.href;
     var myUrl = 'http://www.facebook.com/share.php?u=' + encodeURIComponent("https://wwwosc.ad2iction.com/18/kureha/index.html");
     window.open(myUrl, 'window', 'width=550, height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1');
-
-  }
-
-  function reiFrameSize(){
-
-    var $iframes = $("iframe" );
-
-    $iframes.each(function () {
-      $( this ).data( "ratio", this.height / this.width )
-      // Remove the hardcoded width &#x26; height attributes
-        .removeAttr( "width" )
-        .removeAttr( "height" );
-    });
-
-// Resize the iframes when the window is resized
-    $( window ).resize( function () {
-      $iframes.each( function() {
-// Get the parent container&#x27;s width
-        var width = $( this ).parent().width();
-        $( this ).width( width -14 )
-          .height( width * $( this ).data( "ratio" ) );
-      });
-// Resize to fix all iframes on page load.
-    }).resize();
 
   }
 
@@ -225,5 +197,14 @@ $(function() {
 
 });
 
-
-
+if(isWebview()) {
+  $('.inapp').css('display','block');
+  $('.page2').css('display','none');
+}else{
+  $('.page2').css('display','block');
+}
+function isWebview() {
+  var useragent = navigator.userAgent;
+  var regex = '/(WebView|(iPhone|iPod|iPad)(?!.*Safari\/)|Android.*(wv|.0.0.0))/gi';
+  return Boolean(useragent.match(regex));
+}

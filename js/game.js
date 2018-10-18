@@ -25,12 +25,12 @@ function game() {
     Style = new PIXI.TextStyle,
     Text = new PIXI.Text;
 
-  var state, dashIcon, timeIcon, btn, foodWrap, foodWrapN, table, sister,foodScene, v1, v2, v3, v4, v5, v1f, v2f, v3f, v4f, v5f,backgroundScene,playScene,titleScene, timerText ,scoreText ,touchScene, mobileArray,look, warp , success;
+  var state, dashIcon, timeIcon, btn, foodWrap, foodWrapN, table, sister,foodScene, v1, v2, v3, v4, v5, v1f, v2f, v3f, v4f, v5f,backgroundScene,playScene,titleScene, timerText ,scoreText ,touchScene, mobileArray,look, warp , success,pg , remind,btnArray;
   var app = new Application({
       width: 640,
       height: 998,
       antialiasing: false,
-      transparent: false,
+      transparent: true,
       resolution: 1,
       backgroundColor: 0xffffff
     }
@@ -39,16 +39,18 @@ function game() {
   loader
     .add("img/game.json")
     .add("img/tIcon.json")
+    .add("img/btn.json")
     .load(setup);
 
-  function setup() {
 
-    backgroundScene = new Container();
+
+  function setup() {
+    pg = PIXI.sound.Sound.from('audio/saran-wrap-cut1.mp3');
+  backgroundScene = new Container();
     playScene = new Container();
     titleScene = new Container();
     foodScene = new Container();
     touchScene = new Container();
-
     table =  new Sprite(
       resources["img/game.json"].textures["table.png"]
     );
@@ -80,6 +82,12 @@ function game() {
     );
     dashIcon.x = 240;
 
+    remind = new Sprite(
+      resources["img/game.json"].textures["remind.png"]
+    );
+    remind.x = 150;
+    remind.y = 660;
+    remind.visible = false;
 
     v1 = PIXI.Texture.fromImage('v1.png');
     v2 = PIXI.Texture.fromImage('v2.png');
@@ -114,26 +122,33 @@ function game() {
     warp = new Sprite(foodWrap);
     warp.y = 158;
 
+    btnArray = [];
 
-    btn = new Sprite(
-      resources["img/game.json"].textures["btn.png"]
-    );
-    btn.x = 500;
-    btn.y = 300;
+    for (var j = 1; j < 90; j++) {
+      btnArray.push(PIXI.Texture.fromFrame('btn' + j + '.png'));
+    }
 
+    btn = new PIXI.extras.AnimatedSprite(btnArray);
+
+    // btn = new Sprite(
+    //   resources["img/game.json"].textures["btn.png"]
+    // );
+    btn.x = 484;
+    btn.y = 250;
+    btn.animationSpeed = 0.7;
+    btn.play();
 
     sister = new Sprite(
       resources["img/game.json"].textures["sister.png"]
     );
     sister.x = 500;
-    sister.y = 280;
+    sister.y = 130;
     sister.visible = false;
 
     mobileArray = [];
 
     for (var i = 0; i < 17; i++) {
-      var val = i ;
-      mobileArray.push(PIXI.Texture.fromFrame('icon' + val + '.png'));
+      mobileArray.push(PIXI.Texture.fromFrame('icon' + i + '.png'));
     }
 
     var anim = new PIXI.extras.AnimatedSprite(mobileArray);
@@ -155,10 +170,12 @@ function game() {
       if(window.DeviceOrientationEvent){
 
         window.addEventListener('deviceorientation',function (event) {
+          console.log(Math.round(event.gamma));
           if(!flag){
             // event.gamma >= -72 && event.gamma  <= -70 && event.alpha < 200
-            if( Math.round(event.gamma) >= -72 && Math.round(event.gamma)  <= -70 ){
-              sister.visible = false ;
+            // Math.round(event.gamma) >= -72 && Math.round(event.gamma)  <= -70
+            if( Math.round(event.gamma) <= -45  ){
+              sister.visible = false;
               anim.visible = false;
               packageFood(score);
               score++;
@@ -178,6 +195,7 @@ function game() {
       sister.visible = false ;
       anim.visible = false;
       success.visible = false;
+      remind.visible = false;
       warp.x = 0;
       warp.texture = foodWrap;
       reNew(score);
@@ -190,7 +208,7 @@ function game() {
     foodScene.addChild(look);
     touchScene.addChild(warp,btn ,anim);
     titleScene.addChild(timeIcon, timerText, dashIcon, scoreText );
-    backgroundScene.addChild(table,titleScene,foodScene, touchScene ,sister,anim , success);
+    backgroundScene.addChild(table,titleScene,foodScene, touchScene ,sister,anim , success,remind);
     app.stage.addChild(backgroundScene);
 
 
@@ -245,24 +263,34 @@ function game() {
 
     switch(state) {
       case 0:
+        pg.play();
         look.texture = v1f;
         warp.texture = foodWrapN;
+        remind.visible = true;
         break;
       case 1:
+        pg.play();
         look.texture = v2f;
         warp.texture = foodWrapN;
+        remind.visible = true;
         break;
       case 2:
+        pg.play();
         look.texture = v3f;
         warp.texture = foodWrapN;
+        remind.visible = true;
         break;
       case 3:
+        pg.play();
         look.texture = v4f;
         warp.texture = foodWrapN;
+        remind.visible = true;
         break;
       case 4:
+        pg.play();
         look.texture = v5f;
         warp.texture = foodWrapN;
+        remind.visible = true;
         break;
     }
   }
@@ -361,12 +389,13 @@ function divScale(sizeX, sizeY) {
 }
 
 var again = document.querySelector("#again");
-again.addEventListener('click',function () {
-  $('.page6').css('display','none');
-  $('.page4').css('display','block');
-  game();
-  GEvent('再玩一次');
-},false);
+//
+// again.addEventListener('click',function () {
+//   $('.page6').css('display','none');
+//   $('.page4').css('display','block');
+//   game();
+//   GEvent('再玩一次');
+// },false);
 
 again.addEventListener('touchstart',function () {
   $('.page6').css('display','none');

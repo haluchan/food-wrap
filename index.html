@@ -9,13 +9,14 @@
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="煮婦秒切挑戰賽" />
     <meta property="og:image" content="https://wwwosc.ad2iction.com/18/kureha/img/FBshare.png" />
-    <meta property="og:description" content="立即挑戰，再抽千元家用品" />
+    <meta property="og:description" content="立即挑戰，再抽千元家用品!" />
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/index.css?v=1"/>
+    <link rel="stylesheet" href="css/index.css?v=3"/>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122407391-14"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/pixi.min.js"></script>
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script src="js/pixi-sound.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -31,7 +32,7 @@
         });
       }
     </script>
-    <title>楓康保鮮膜</title>
+    <title>【楓康吳羽保鮮膜】煮婦秒切挑戰賽</title>
 </head>
 <body>
 <section class="pc">
@@ -40,116 +41,126 @@
 <section class="revert" id="revert">
     <img src="img/revert.png" alt="楓康保鮮膜">
 </section>
+<section class="container">
 
-<section class="nav">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu x-btn"><img src="img/x.png" alt=""></div>
-    </div>
-    <div class="nav-title" id="first-page">
-        <span><img src="img/nav-t1.png" alt="活動首頁"></span></div>
-    <div class="nav-title ruleo">
-        <span><img src="img/nav-t2.png" alt="活動辦法"></span></div>
-    <div class="nav-title shop">
-        <span><img src="img/nav-t3.png" alt="網站商城"></span></div>
-    <div class="nav-title" id="gift">
-        <span><img src="img/detail.png" alt="獎品詳情"></span></div>
-    <div class="nav-bottom"><img src="img/navbottom.png" alt="楓康保鮮膜"></div>
-    <div class="rules">
-        <div class="rule-bg">
-            <img id="cancel" src="img/close-btn.png" alt="cancel">
-            <img src="img/boundary.png" alt="活動說明">
-            <img id="top" src="img/top.png" alt="回到最上面">
+    <section class="nav">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu x-btn"><img src="img/x.png" alt=""></div>
         </div>
-    </div>
-</section>
-<section class="page detail-page">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="detail">
-        <div class="rule-bg">
-            <img src="img/gift.png" alt="獎品介紹">
+        <div class="nav-title" id="first-page">
+            <span><img src="img/nav-t1.png" alt="活動首頁"></span></div>
+        <div class="nav-title ruleo">
+            <span><img src="img/nav-t2.png" alt="活動辦法"></span></div>
+        <div class="nav-title shop">
+            <span><img src="img/nav-t3.png" alt="網站商城"></span></div>
+        <div class="nav-title" id="gift">
+            <span><img src="img/detail.png" alt="獎品詳情"></span></div>
+        <div class="nav-bottom"><img src="img/navbottom.png" alt="楓康保鮮膜"></div>
+        <div class="rules">
+            <div class="rule-bg">
+                <img id="cancel" src="img/close-btn.png" alt="cancel">
+                <img src="img/boundary.png" alt="活動說明">
+                <img id="top" src="img/top.png" alt="回到最上面">
+            </div>
         </div>
-    </div>
-</section>
-<section class="page page2">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="page2-title1"><img src="img/page2-title1.png" alt=""></div>
-    <div class="page2-title2"><img src="img/page2-title2.png" alt=""></div>
-    <div class="page2-bottom">
-        <div class="page2-start-btn"><img src="img/page2-start-btn.png" alt=""></div>
-        <div class="page2-s2"><img src="img/page2-s2.png" alt=""></div>
-        <div class="page2-s1"><img src="img/page2-s1.png" alt=""></div>
-    </div>
-</section>
-<section class="page page3">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="rule"><img src="img/page3-rule.png" alt="遊戲規則"></div>
-    <div class="page3-ok-btn"><img src="img/page3-ok-btn.png" alt="前往遊戲"></div>
-    <div class="teachGIF"><img src="img/demo.gif"></div>
-</section>
-<section class="page page4">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div id="game"></div>
-</section>
-<section class="page page5">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="page5-t1"><img src="img/page5-t1.png" alt="楓康保鮮膜"></div>
-    <video class="promo-video" id="myVideo2" autoplay muted playsinline controls>
-        <source src="video/promo.mp4" type="video/mp4" />
-    </video>
-    <div class="page5-t2"><img src="img/page5-t2.png" alt="楓康保鮮膜"></div>
-</section>
-<section class="page page6">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="success">
-        <div class="page6-title"><img src="img/success.png" alt="挑戰成功"></div>
-        <div class="score"><img src="img/plate.png" alt="盤子"><p id="scoreP">16<span>秒</span></p></div>
-    </div>
-    <div class="fail">
-        <div class="page6-title"><img src="img/fail.png" alt="挑戰成功"></div>
-        <div class="score"><img src="img/plate.png" alt="盤子">
-            <div class="ct"><p>挑戰</p><p>結束</p></div>
+    </section>
+    <section class="page detail-page">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
         </div>
-    </div>
-    <div class="page6-btn">
-        <div class="raffle-btn"><img src="img/raffle-btn.png" alt="抽獎"></div>
-        <div class="more-btn"><img src="img/more-btn.png" alt="了解更多"></div>
-        <div class="again-btn" id="again"><img src="img/again-btn.png" alt="再次挑戰"></div>
-        <div class="share-btn"><img src="img/share-btn.png" alt="FB分享"></div>
-    </div>
-</section>
-<section class="page page7">
-    <div class="top">
-        <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
-        <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
-    </div>
-    <div class="page7-t1"><img src="img/page7-t1.png" alt=""></div>
-    <form class="r-form">
-        <div class="coulum"><span class="page7-title"><img src="img/name.png" alt="姓名"></span><span class="page7-input"><input type="text" name="name" id="name"></span></div>
-        <div class="coulum"><span class="page7-title"><img src="img/mobile.png" alt="電話"></span><span class="page7-input"><input type="text" name="phone" id="tel" maxlength="10"></span></div>
-        <div class="coulum"><span class="page7-title"><img src="img/e-mail.png" alt="信箱"></span><span class="page7-input"><input type="email" name="email" id="mail"></span></div>
-        <div class="checkw "><input type="checkbox" id="checkB" ><label for="checkB"><span class="check"></span></label><span class="main"><img src="img/main.png" alt="同意"></span></div>
-        <div class="page7-sent"><img src="img/page7-btn.png" alt="送出"></div>
-    </form>
-
+        <div class="detail">
+            <div class="rule-bg">
+                <img src="img/gift.png" alt="獎品介紹">
+            </div>
+        </div>
+    </section>
+    <section class="page inapp">
+        <img src="img/inapp-webview-alert.png" alt="">
+    </section>
+    <section class="page page2">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div class="page2-title1"><img src="img/page2-title1.png" alt=""></div>
+        <div class="page2-title2"><img src="img/page2-title2.png" alt=""></div>
+        <div class="page2-bottom">
+            <div class="page2-start-btn bounceIn"><img src="img/page2-start-btn.png" alt=""></div>
+            <div class="page2-s2"><img src="img/page2-s2.png" alt=""></div>
+            <div class="page2-s1"><img  src="img/page2-s1.png" alt=""></div>
+        </div>
+    </section>
+    <section class="page page3">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div class="rule"><img src="img/page3-rule.png" alt="遊戲規則"></div>
+        <div class="page3-ok-btn"><img src="img/page3-ok-btn.png" alt="前往遊戲"></div>
+        <div class="teachGIF"><div class="cn"><img class="tgif1" src="img/animated-p.png"><img class="tgif" src="img/animated.png"></div></div>
+    </section>
+    <section class="page page4">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div id="game"></div>
+    </section>
+    <section class="page page5">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div class="page5-t1"><img src="img/page5-t1.png" alt="楓康保鮮膜"></div>
+        <video class="promo-video" id="myVideo2" autoplay muted playsinline controls>
+            <source src="video/promo.mp4" type="video/mp4" />
+        </video>
+        <div class="page5-t2"><img src="img/page5-t2.png" alt="楓康保鮮膜"></div>
+    </section>
+    <section class="page page6">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div class="success">
+            <div class="page6-title"><img src="img/success.png" alt="挑戰成功"></div>
+            <div class="score"><img src="img/plate.png" alt="盤子"><p id="scoreP">16<span>秒</span></p></div>
+        </div>
+        <div class="fail">
+            <div class="page6-title"><img src="img/fail.png" alt="挑戰成功"></div>
+            <div class="score"><img src="img/plate.png" alt="盤子">
+                <div class="ct"><p>挑戰</p><p>結束</p></div>
+            </div>
+        </div>
+        <div class="page6-btn">
+            <div class="raffle-btn"><img src="img/raffle-btn.png" alt="抽獎"></div>
+            <div class="more-btn"><img src="img/more-btn.png" alt="了解更多"></div>
+            <div class="again-btn" id="again"><img src="img/again-btn.png" alt="再次挑戰"></div>
+            <div class="share-btn"><img src="img/share-btn.png" alt="FB分享"></div>
+        </div>
+    </section>
+    <section class="page page7">
+        <div class="top">
+            <div class="logo"><img src="img/logo.png" alt="楓康保鮮膜"></div>
+            <div class="menu manu-btn"><img src="img/menu-btn.png" alt=""></div>
+        </div>
+        <div class="page7-t1"><img src="img/page7-t1.png" alt=""></div>
+        <form class="r-form">
+            <div class="coulum"><span class="page7-title"><img src="img/name.png" alt="姓名"></span><span class="page7-input"><input type="text" name="name" id="name"></span></div>
+            <div class="coulum"><span class="page7-title"><img src="img/mobile.png" alt="電話"></span><span class="page7-input"><input type="text" name="phone" id="tel" maxlength="10"></span></div>
+            <div class="coulum"><span class="page7-title"><img src="img/e-mail.png" alt="信箱"></span><span class="page7-input"><input type="email" name="email" id="mail"></span></div>
+            <div class="checkw "><input type="checkbox" id="checkB" ><label for="checkB"><span class="check"></span></label><span class="main"><img src="img/main.png" alt="同意"></span></div>
+            <div class="page7-sent"><img src="img/page7-btn.png" alt="送出"></div>
+        </form>
+        <div class="p7t2"><img src="img/p7t2.png" alt="獎品介紹"></div>
+        <div class="detail">
+            <div class="rule-bg">
+                <img src="img/gift.png" alt="獎品介紹">
+            </div>
+        </div>
+    </section>
 </section>
 <script src="js/controll.js"></script>
 <script src="js/game.js"></script>

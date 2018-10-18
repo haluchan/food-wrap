@@ -1,5 +1,4 @@
 
-@media screen and (orientation: portrait) and (max-width: 812px) {
   img{
     width: 100%;
     vertical-align:middle;
@@ -57,28 +56,3 @@
     }
 
   }
-}
-
-@media screen and (orientation: landscape) and (max-width: 812px){
-  img{
-    width: 100%;
-    vertical-align:middle;
-  }
-
-  .promo{
-    display: none;
-  }
-
-}
-
-@media screen  and (min-width: 813px){
-  img{
-    width: 100%;
-    vertical-align:middle;
-  }
-
-  .promo {
-    display: none;
-  }
-
-}

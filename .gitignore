@@ -10,3 +10,12 @@ gen
 .gitignore
 .idea/inspectionProfiles/
 .idea/workspace.xml
+*~
+.DS_Store
+.sass-cache
+prepros-6.config
+### Sass template
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
